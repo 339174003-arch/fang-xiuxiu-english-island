@@ -164,9 +164,11 @@ Page({
   },
 
   stopRecording() {
-    if (this._recording) this._recorder.stop();
-    this._recording = false;
-    this.setData({ listening: false });
+    if (this._recording) {
+      this._recorder.stop();
+      this._recording = false;
+    }
+    if (this.data.listening) this.setData({ listening: false });
   },
 
   nextQuestion() {
@@ -180,8 +182,7 @@ Page({
       wx.setStorageSync('fxxy-stars', Number(wx.getStorageSync('fxxy-stars') || 0) + 8);
       return;
     }
-    this.setData({ index: this.data.index + 1 });
-    this.showQuestion();
+    this.setData({ index: this.data.index + 1 }, () => this.showQuestion());
   },
 
   finish() {
@@ -195,7 +196,8 @@ Page({
   },
 
   onUnload() {
-    this.stopRecording();
+    if (this._recording) this._recorder.stop();
+    this._recording = false;
     if (this._audio) this._audio.destroy();
   }
 });
