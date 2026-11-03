@@ -10,7 +10,6 @@
     "compileHotReLoad": true
   },
   "compileType": "miniprogram",
-  "libVersion": "",
   "appid": "touristappid",
   "projectname": "fang-xiuxiu-english-island",
   "miniprogramRoot": "./",
