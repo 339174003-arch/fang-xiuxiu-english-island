@@ -1,0 +1,18 @@
+{
+  "description": "方羞羞英语岛小学英语跟读与闯关小程序",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "compileHotReLoad": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "touristappid",
+  "projectname": "fang-xiuxiu-english-island",
+  "miniprogramRoot": "./",
+  "condition": {}
+}

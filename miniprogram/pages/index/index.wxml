@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="hero card">
+    <view class="hero-cloud">☁️</view>
+    <view class="fox">🦊</view>
+    <view class="hero-copy">
+      <text class="eyebrow">🌈 欢迎来到</text>
+      <text class="title">方羞羞英语岛</text>
+      <text class="subtitle">从一年级到六年级，一步一步学好英语！</text>
+      <button class="primary hero-button" bindtap="startDaily">🎮 开始今日挑战</button>
+    </view>
+  </view>
+
+  <view class="stats">
+    <view class="stat card"><text class="stat-icon">⭐</text><view><text class="stat-label">我的星星</text><text class="stat-value">{{stars}} 颗</text></view></view>
+    <view class="stat card"><text class="stat-icon">📚</text><view><text class="stat-label">小学阶段</text><text class="stat-value">一年级—六年级</text></view></view>
+  </view>
+
+  <view class="section-head">
+    <view><text class="section-title">🗺️ 六年闯关地图</text><text class="section-sub">从高年级开始挑战，循序复习小学重点</text></view>
+    <text class="sort-hint">难 → 易</text>
+  </view>
+
+  <view wx:for="{{grades}}" wx:key="id" class="level card grade-{{item.id}}">
+    <view class="level-top">
+      <text class="level-icon">{{item.icon}}</text>
+      <text class="level-name">{{item.name}}</text>
+      <text class="pill">{{item.badge}}</text>
+    </view>
+    <text class="topics">{{item.topics}}</text>
+    <view class="level-bottom">
+      <text class="item-count">题库 {{item.items.length}} 项 · 每次练习 8 句</text>
+      <button class="go-button" data-grade="{{item.id}}" bindtap="startGrade">开始闯关 →</button>
+    </view>
+  </view>
+
+  <view class="privacy-tip">🎙️ 跟读时才申请麦克风权限，录音只在本机检测，不会上传。</view>
+</view>

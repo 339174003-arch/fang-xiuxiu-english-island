@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/practice/practice"
+  ],
+  "window": {
+    "navigationBarTitleText": "方羞羞英语岛",
+    "navigationBarBackgroundColor": "#fff8e9",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff8e9",
+    "backgroundTextStyle": "light"
+  },
+  "permission": {
+    "scope.record": {
+      "desc": "用于英语跟读练习，只在本机检测是否开口，不上传录音"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

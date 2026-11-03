@@ -1,0 +1,33 @@
+<view class="page">
+  <view wx:if="{{!done}}">
+    <view class="topline">
+      <view><text class="page-title">🗣️ 开口跟读</text><text class="page-subtitle">第 {{index + 1}} / {{total}} 句 · 小学英语循序练习</text></view>
+      <text class="grade-pill">{{current.grade}} 年级</text>
+    </view>
+    <view class="progress"><view class="progress-fill" style="width:{{(index + 1) / total * 100}}%"></view></view>
+
+    <view class="word-card card">
+      <text class="emoji">{{current.emoji}}</text>
+      <text class="english">{{current.en}}</text>
+      <text class="translation">{{current.zh}}</text>
+      <button class="listen-button" bindtap="playStandard" disabled="{{listening}}">{{standardReady ? '🔊 再听一次标准音' : '🔊 听标准读音'}}</button>
+    </view>
+
+    <view class="practice-card card">
+      <text class="status {{voiceHeard ? 'success' : ''}}">{{status}}</text>
+      <view class="meter"><view class="meter-fill" style="width:{{meter}}%"></view></view>
+      <view class="actions">
+        <button class="primary mic-button" bindtap="startFollow" disabled="{{!standardReady || listening || voiceHeard}}">{{listening ? '🎙️ 正在聆听' : '🎙️ 开始跟读'}}</button>
+        <button class="next-button" bindtap="nextQuestion" disabled="{{!canNext}}">{{index + 1 === total ? '完成练习 →' : '下一句 →'}}</button>
+      </view>
+      <text class="privacy">🔒 麦克风仅在此页使用，声音只在本机检测，不上传录音。</text>
+    </view>
+  </view>
+
+  <view wx:else class="result card">
+    <text class="result-emoji">🌟</text>
+    <text class="result-title">跟读练习完成！</text>
+    <text class="result-copy">今天练习了 8 句，获得 8 颗星星，继续坚持就会越来越棒！</text>
+    <button class="primary result-button" bindtap="finish">完成</button>
+  </view>
+</view>
